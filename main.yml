@@ -1,6 +1,6 @@
 ---
 - name: main
-  hosts: all
+  hosts: overkill
 
   tasks:
     - name: Full system upgrade
@@ -22,16 +22,21 @@
         mode: 0644
         validate: 'visudo -cf %s'
 
+    - name: Install base-devel (needed for aur)
+      community.general.pacman:
+        name: base-devel
+        update_cache: true
+
     - name: Installing AUR helper
       kewlfft.aur.aur:
-        name: "yay"
+        name: "{{ aur_helper }}"
       become: true
       become_user: aur_builder
     
     - name: Install AUR packages
       kewlfft.aur.aur:
-        name: "vesktop"
+        name: "{{ aur_packages }}"
         state: present
-        use: "yay"
+        use: "{{ aur_helper }}"
       become: true
       become_user: aur_builder

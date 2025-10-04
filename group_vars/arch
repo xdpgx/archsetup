@@ -1,0 +1,68 @@
+---
+aur_helper: "yay"
+aur_packages:
+  - vesktop
+  - deezer 
+  - signal-desktop
+  - globalprotect-openconnect-git
+#hyperland
+  - hyprland
+  - hyprshot
+  - hyprpicker
+  - hyprlock
+  - hypridle
+  - hyprpolkitagent
+  - hyprland-qtutils
+  - wofi
+  - waybar
+  - mako
+  - swaybg
+  - xdg-desktop-portal-hyprland
+  - xdg-desktop-portal-gtk
+#desktop
+  - brightnessctl
+  - playerctl
+  - pamixer
+  - pavucontrol
+  - wireplumber
+  - fcitx5
+  - fcitx5-gtk
+  - fcitx5-qt
+  - fcitx5-configtool
+  - wl-clip-persist
+  - clipse-bin
+  - nautilus
+  - sushi
+  - ffmpegthumbnailer
+  - gnome-calculator
+  - chromium
+  - firefox
+  - mpv
+  - evince
+  - imv
+  - localsend-bin
+  - blueberry
+# terminal
+  - wget
+  - curl
+  - unzip
+  - inetutils
+  - fd
+  - eza
+  - fzf
+  - ripgrep
+  - zoxide
+  - bat
+  - wl-clipboard
+  - htop
+  - man
+  - tldr
+  - plocate
+  - ghostty
+  - bash-completion
+# fonts
+  - tf-font-awesome
+  - noto-fonts
+  - noto-fonts-emoji 
+  - noto-fonts-cjk 
+  - noto-fonts-extra
