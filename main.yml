@@ -1,0 +1,37 @@
+---
+- name: main
+  hosts: all
+
+  tasks:
+    - name: Full system upgrade
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+
+    - name: Create the `aur_builder` user
+      ansible.builtin.user:
+        name: aur_builder
+        create_home: yes
+        group: wheel
+    
+    - name: Allow the `aur_builder` user to run `sudo pacman` without a password
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers.d/11-install-aur_builder
+        line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+        create: yes
+        mode: 0644
+        validate: 'visudo -cf %s'
+
+    - name: Installing AUR helper
+      kewlfft.aur.aur:
+        name: "yay"
+      become: true
+      become_user: aur_builder
+    
+    - name: Install AUR packages
+      kewlfft.aur.aur:
+        name: "vesktop"
+        state: present
+        use: "yay"
+      become: true
+      become_user: aur_builder
